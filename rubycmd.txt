@@ -1,0 +1,5 @@
+//建立名為name的網站
+rails new name
+
+//執行網站伺服器
+rails server
