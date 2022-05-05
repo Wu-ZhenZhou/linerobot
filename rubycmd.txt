@@ -6,3 +6,11 @@ rails server
 
 //測試區
 irb
+
+//做一個 Controller kamigo
+rails generate controller kamigo
+
+//刪除kamigo檔案
+rails destroy controller kamigo
+
+
