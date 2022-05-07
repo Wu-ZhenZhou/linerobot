@@ -1,2 +1,3 @@
 git rm --cached . -rf
 git clone <address>
+git remote set-url origin
