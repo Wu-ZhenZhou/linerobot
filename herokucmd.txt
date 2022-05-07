@@ -1,8 +1,0 @@
-//檢查安裝完成
-heroku
-
-//登入
-heroku login
-
-//專案初始設定
-heroku create <專案名稱>  !!!需要特殊性避免撞名
