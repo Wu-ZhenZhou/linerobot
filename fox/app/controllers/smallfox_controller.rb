@@ -42,8 +42,4 @@ class SmallfoxController < ApplicationController
       	})
     end
 
-    def translate_to_kotean(message)
-    	"#{message}油~"
-    end
-
 end
