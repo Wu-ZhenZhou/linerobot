@@ -1,1 +1,12 @@
+//RUBY載點
 C:\Ruby27-x64\lib\ruby\gems\2.7.0\gems\railties-7.0.2.4\lib\rails\templates\rails\welcome
+
+//Heroku
+https://signup.heroku.com/login
+
+//Heroku CLI下載
+https://devcenter.heroku.com/articles/heroku-cli#windows
+
+//套件安裝
+https://rubygems.org/gems
+
