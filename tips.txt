@@ -1,1 +1,5 @@
 套件管理在Gemfile
+修改Gemfile後要用bundle install重載一次
+
+//安裝bundle
+gem install bundler
