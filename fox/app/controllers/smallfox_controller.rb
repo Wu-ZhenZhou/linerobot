@@ -1,4 +1,5 @@
 class SmallfoxController < ApplicationController
+	protect_from_forgery with: :null_session
 	def eat
 		render plain: "吃冰"
 	end
@@ -45,6 +46,10 @@ class SmallfoxController < ApplicationController
       		http_request_class: http_request.class,
       		http_response_class: http_response.class
     	})
+    end
+
+	def webhook
+		head :ok
     end
 
 end
