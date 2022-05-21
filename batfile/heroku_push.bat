@@ -1,7 +1,7 @@
 cd ..
 cd fox
 git add .
-git commit -m "give up newline"
+git commit -m "anyone to anyone"
 git push heroku master
 
 pause
