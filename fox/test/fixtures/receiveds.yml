@@ -2,10 +2,8 @@
 
 one:
   channel_id: MyString
-  keyword: MyString
-  message: MyString
+  text: MyString
 
 two:
   channel_id: MyString
-  keyword: MyString
-  message: MyString
+  text: MyString

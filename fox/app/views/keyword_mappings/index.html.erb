@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Keyword mappings</h1>
+
+<div id="keyword_mappings">
+  <% @keyword_mappings.each do |keyword_mapping| %>
+    <%= render keyword_mapping %>
+    <p>
+      <%= link_to "Show this keyword mapping", keyword_mapping %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New keyword mapping", new_keyword_mapping_path %>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+  resources :keyword_mappings
   get '/smallfox/eat', to: 'smallfox#eat'
   get '/smallfox/request_headers', to: 'smallfox#request_headers'
   get '/smallfox/request_body', to: 'smallfox#request_body'
