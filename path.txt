@@ -10,3 +10,5 @@ https://devcenter.heroku.com/articles/heroku-cli#windows
 //套件安裝
 https://rubygems.org/gems
 
+//Action View 表單輔助方法
+https://rails.ruby.tw/form_helpers.html

@@ -4,6 +4,13 @@ class SmallfoxController < ApplicationController
 
 
 	def webhook
+        #紀錄頻道
+        #Channel.create(channel_id: channel_id)//會重複
+        Channel.find_or_create_by(channel_id: channel_id)
+
+        #發送公告
+        reply_text = send_announcement(channel_id, received_text)
+
 		#學說話
 		reply_text = learn(channel_id, received_text)
 
@@ -114,6 +121,30 @@ class SmallfoxController < ApplicationController
 
         # 傳送訊息
         line.reply_message(reply_token, message)
+    end
+
+    # 發送公告
+    def send_announcement(channel_id, received_text)
+      return nil unless received_text[0..5] == '/發送公告;'
+      text = received_text[6..-1]
+      Channel.all.each do |channel|
+        push_to_line(channel.channel_id, text) 
+      end
+    end
+
+    # 傳送訊息到 line
+    def push_to_line(channel_id, text)
+      return nil if channel_id.nil? or text.nil?
+      puts channel_id, text
+    
+      # 設定回覆訊息
+      message = {
+        type: 'text',
+        text: text
+      } 
+
+      # 傳送訊息
+      line.push_message(channel_id, message)
     end
 
     # Line Bot API 物件初始化
