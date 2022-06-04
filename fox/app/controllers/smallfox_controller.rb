@@ -25,12 +25,13 @@ class SmallfoxController < ApplicationController
         #發送公告
         reply_text = send_announcement(channel_id, received_text)
 
-		#學說話
-		reply_text = learn(channel_id, received_text)
+		    #學說話
+		    reply_text = learn(channel_id, received_text)
 
-		#關鍵字回覆
-		reply_text = keyword_reply(channel_id, received_text) if reply_text.nil?
-		# 設定回覆訊息
+		    #關鍵字回覆
+		    reply_text = keyword_reply(channel_id, received_text) if reply_text.nil?
+		    
+        # 設定回覆訊息
         #reply_text = keyword_reply(received_text)
       
         #推齊
@@ -50,16 +51,17 @@ class SmallfoxController < ApplicationController
     #取得天氣
     def get_weather(received_text)
       return nil unless received_text.include? '天氣'
-      upload_to_imgur(get_weather_from_cwb)
+      #upload_to_imgur(get_weather_from_cwb)
+      get_weather_from_cwb
     end
 
     #圖片位址
     def get_weather_from_cwb
-      uri = URI('https://www.cwb.gov.tw/V8/C/W/OBS_Radar.html?Tab=0')
-      response = Net::HTTP.get(uri)
-      start_index = response.index('/Data/radar/CV1_3600') 
-      end_index = response.index('.png"')-1
-      "https://www.cwb.gov.tw" + response[start_index..end_index]
+      #uri = URI('https://www.cwb.gov.tw/V8/C/W/OBS_Radar.html?Tab=0')
+      #response = Net::HTTP.get(uri)
+      #start_index = response.index('/Data/radar/CV1_3600') 
+      #end_index = response.index('.png"')
+      "https://www.cwb.gov.tw/Data/radar/CV1_3600.png"# + response[start_index..end_index]
     end
 
     #上傳圖片到 imgur
@@ -69,12 +71,11 @@ class SmallfoxController < ApplicationController
       http.use_ssl = true
       request = Net::HTTP::Post.new(url)
       request["authorization"] = 'Client-ID 95ea7b33038df8b'
-
       request.set_form_data({"image" => image_url})
       response = http.request(request)
       json = JSON.parse(response.read_body)
       begin
-        json['data']['link'].gsub("http:","https:")
+        json['data']['link'].gsub("https:","https:")
       rescue
         nil
       end
